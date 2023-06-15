@@ -41,7 +41,7 @@ public class For extends Instruction {
             environment.pushStackFrame();
 
             // przypisujemy zmiennej sterującej kolejną wartość (jest to 1 krok):
-            new Declaration(variable, new Constant(value)).run(environment);
+            new VariableDeclaration(variable, new Constant(value)).run(environment);
 
             // wykonujemy wszystkie wewnętrzne instrukcje
             for(Instruction instruction : instructions) {
