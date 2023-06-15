@@ -39,7 +39,7 @@ public class Main {
                 }
         ));
 
-        program.debug();
+        program.run();
 
         program = new Program(new Block(
                 new Declaration[] {
