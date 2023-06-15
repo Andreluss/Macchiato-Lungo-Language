@@ -1,7 +1,6 @@
 package runtime;
 
 import exceptions.MacchiatoDebugStopException;
-import exceptions.MacchiatoEnvironment;
 import exceptions.MacchiatoException;
 import instructions.Instruction;
 import instructions.InstructionBase;

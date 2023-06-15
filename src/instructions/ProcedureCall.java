@@ -1,9 +1,9 @@
 package instructions;
 
-import exceptions.MacchiatoEnvironment;
 import exceptions.MacchiatoException;
 import exceptions.MacchiatoRuntimeException;
 import expressions.Expression;
+import runtime.MacchiatoEnvironment;
 
 import java.util.Collection;
 import java.util.Iterator;

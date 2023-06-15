@@ -1,7 +1,7 @@
 package instructions;
 
-import exceptions.MacchiatoEnvironment;
 import exceptions.MacchiatoException;
+import runtime.MacchiatoEnvironment;
 
 /**
  * Instrukcja: blok kodu w Macchiato

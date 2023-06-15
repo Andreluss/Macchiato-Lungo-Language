@@ -1,8 +1,8 @@
 package instructions;
 
-import exceptions.MacchiatoEnvironment;
 import exceptions.MacchiatoException;
 import expressions.Expression;
+import runtime.MacchiatoEnvironment;
 
 /**
  * Instrukcja wyświetlania wartości wyrażenia w konsoli
