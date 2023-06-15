@@ -77,7 +77,7 @@ public class MacchiatoEnvironment {
      * lub false, jeśli wywołano exit, czyli program ma się skończyć natychmiast
      */
     public boolean pauseExecution(InstructionBase nextInstruction) {
-        System.out.println("runtime.Program zapauzowany. Następny krok to " + nextInstruction);
+        System.out.println("Program zapauzowany. Następny krok to " + nextInstruction);
         Scanner scanner = new Scanner(System.in);
         while(true) {
             try {

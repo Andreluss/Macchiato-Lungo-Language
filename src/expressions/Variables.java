@@ -1,9 +1,13 @@
 package expressions;
 
 import exceptions.MacchiatoRuntimeException;
+import instructions.ProcedureDeclaration;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Klasa trzymająca informacje o zmiennych w aktualnym poziomie zagłębienia w programie.
+ * Klasa trzymająca informacje o zmiennych i procedurach w aktualnym poziomie zagłębienia w programie.
  */
 public class Variables {
     private static class Var {
@@ -13,12 +17,14 @@ public class Variables {
         }
     }
     private final Var[] vars;
+    private final Map<String, ProcedureDeclaration> procs;
 
     /**
      * Tworzy nowy zestaw informacji o zmiennych — domyślnie wszystkie nie istnieją
      */
     public Variables() {
         this.vars = new Var[26]; // wszystkie są null'ami
+        this.procs = new HashMap<>(); // nie ma żadnych zadeklarowanych procedur
     }
 
     /**
@@ -26,9 +32,11 @@ public class Variables {
      * @param previousVariables zmienne z poprzedniego zagłębienia
      */
     public Variables(Variables previousVariables) {
-        this();
+        this.vars = new Var[26];
         // kopiujemy referencje do zmiennych:
         System.arraycopy(previousVariables.vars, 0, vars, 0, 26);
+        // kopiujemy referencje do (deklaracji) procedur:
+        this.procs = new HashMap<>(previousVariables.procs);
     }
     private int idx(char name) {
         return name - 'a';
@@ -37,6 +45,29 @@ public class Variables {
         if(vars[idx(name)] == null)
             throw new MacchiatoRuntimeException("Zmienna " + name + " nie istnieje w bieżącym kontekście!");
         return vars[idx(name)];
+    }
+
+
+    /**
+     * Tworzy nową procedurę (być może przysłaniając poprzednią).
+     * @param name nazwa procedury
+     * @param procedureDeclaration referencja do deklaracji procedury
+     */
+    public void createProcedure(String name, ProcedureDeclaration procedureDeclaration) {
+        procs.put(name, procedureDeclaration);
+    }
+
+    /**
+     * Zwraca deklarację procedury o podanej nazwie w bieżącym kontekście.
+     * @param name nazwa procedury
+     * @return deklaracja procedury o podanej nazwie
+     * @throws MacchiatoRuntimeException jeśli procedura o tej nazwie nie instnieje
+     */
+    public ProcedureDeclaration getProcedure(String name) throws MacchiatoRuntimeException {
+        ProcedureDeclaration procedure = procs.get(name);
+        if(procedure == null)
+            throw new MacchiatoRuntimeException("Procedura " + name + " nie istnieje w bieżącym kontekście!");
+        return procedure;
     }
 
     /**

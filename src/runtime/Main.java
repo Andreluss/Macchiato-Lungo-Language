@@ -1,10 +1,9 @@
 package runtime;
 
-import expressions.Constant;
-import expressions.Modulo;
-import expressions.Subtraction;
-import expressions.Sum;
+import expressions.*;
 import instructions.*;
+
+import java.util.List;
 
 // Zadanie zaliczeniowe 2 z Programowania Obiektowego
 // Autor rozwiązania: Andrzej Jabłoński
@@ -40,10 +39,28 @@ public class Main {
                 }
         ));
 
+        program.debug();
+
+        program = new Program(new Block(
+                new Declaration[] {
+                        new ProcedureDeclaration("prt", List.of(new Character[]{'x'}),
+                                new Block(new Declaration[]{}, new Instruction[]{
+                                        new Print(new Multiplication(new Constant(11), new Variable('x')))
+                                })),
+                        new VariableDeclaration('a', new Constant(69))
+                },
+                new Instruction[] {
+                        new ProcedureCall("prt", List.of(new Expression[]{new Constant(10)})),
+                        new ProcedureCall("prt", List.of(new Expression[]{new Variable('a')})),
+                }
+        ));
+
         // uruchamiamy bez debugowania
 //        program.run();
 
         // uruchamiamy z debugowaniem
          program.debug();
+
+
     }
 }

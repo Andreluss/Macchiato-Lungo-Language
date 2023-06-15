@@ -10,7 +10,17 @@ import java.util.Collection;
  */
 public class ProcedureDeclaration extends Declaration {
     private final String name;
+
+    public Collection<Character> getParameters() {
+        return parameters;
+    }
+
     private final Collection<Character> parameters;
+
+    public Block getBody() {
+        return body;
+    }
+
     private final Block body;
 
     /**
@@ -34,11 +44,13 @@ public class ProcedureDeclaration extends Declaration {
         environment.pauseExecutionIfNeeded(this);
         environment.countNextStep(this);
 
-        // ... todo
+        environment.getVariables().createProcedure(name, this);
     }
 
     @Override
     public String toString() {
-        return null; // todo
+        String params = parameters.toString(); // konwertujemy do postaci [a, b, c]
+        params = params.substring(1, params.length() - 2); // obcinamy nawiasy
+        return "fun " + name + "(" + params + ")" + body;
     }
 }

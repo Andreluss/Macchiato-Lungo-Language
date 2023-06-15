@@ -62,7 +62,7 @@ public class Program {
             char c = scanner.next().charAt(0);
             switch (c) {
                 case 'c', 's', 'd' -> {
-                    System.out.println("runtime.Program już się zakończył. ");
+                    System.out.println("Program już się zakończył. ");
                     scanner.nextLine();
                 }
                 case 'e' -> {
@@ -98,7 +98,7 @@ public class Program {
             waitForExitCommand();
         } catch (MacchiatoDebugStopException e) {
             // wiemy, że program został przerwany poleceniem exit
-            System.out.println("runtime.Program przerwany przez użytkownika. Debuger został zamknięty. ");
+            System.out.println("Program przerwany przez użytkownika. Debuger został zamknięty. ");
         } catch (MacchiatoException e) {
             System.out.println(e.getMessage());
             System.out.println("Wartości zmiennych: ");
