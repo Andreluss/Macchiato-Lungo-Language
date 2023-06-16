@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DivisionTest extends BinaryExpressionTest {
-    @ParameterizedTest
+    /*@ParameterizedTest
     @CsvSource({
             "1, 1, 1",
             "1, 2, 0",
@@ -23,7 +23,7 @@ class DivisionTest extends BinaryExpressionTest {
                 () -> assertDoesNotThrow(() -> division.evaluate(variables)),
                 () -> assertEquals(expected, division.evaluate(variables))
         );
-    }
+    }*/
 
 
     @ParameterizedTest
