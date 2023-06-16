@@ -17,7 +17,9 @@ public class Variable extends Expression {
     public Variable(char name) {
         this.name = name;
     }
-
+    public static Variable named(char name) {
+        return new Variable(name);
+    }
     @Override
     public int evaluate(Variables variables) throws MacchiatoRuntimeException {
         return variables.value(name);

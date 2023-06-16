@@ -1,10 +1,5 @@
 package runtime;
 
-import instructions.Block;
-import instructions.Instruction;
-
-import java.util.Collection;
-
 /**
  * Klasa budująca program.
  * Uwaga: ponieważ program to praktycznie to samo, co blok kodu,

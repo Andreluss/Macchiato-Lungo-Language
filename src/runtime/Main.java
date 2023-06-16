@@ -20,10 +20,10 @@ public class Main {
                                         new Declaration[] {
                                                 new VariableDeclaration('p', new Constant(1))},
                                         new Instruction[] {
-                                                new Assignment('k', new Sum(new Variable('k'), new Constant(2))),
+                                                new Assignment('k', new Addition(new Variable('k'), new Constant(2))),
                                                 new For('i', new Subtraction(new Variable('k'), new Constant(2)),
                                                         new Instruction[] {
-                                                                new Assignment('i', new Sum(new Variable('i'), new Constant(2))),
+                                                                new Assignment('i', new Addition(new Variable('i'), new Constant(2))),
                                                                 new If(new Modulo(new Variable('k'), new Variable('i')), If.ComparisonType.Equal, new Constant(0),
                                                                         new Instruction[] {
                                                                                 new Assignment('p', new Constant(0))
@@ -61,21 +61,21 @@ public class Main {
         // uruchamiamy z debugowaniem
          program.debug();
 
-//        var program_v2 = new ProgramBuilder()
-//                .declareVariable('x', Constant.of(101))
-//                .declareVariable('y', Constant.of(1))
-//                .declareProcedure("out", List.of('a'), new BlockBuilder()
-//                        .print(Addition.of(Variable.named('a'), Variable.named('x')))
-//                        .build()
-//                )
-//                .assign('x', Subtraction.of(Variable.named('x'), Variable.named('y')))
-//                .invoke("out", List.of(Variable.named('x')))
-//                .invoke("out", List.of(Constant.of(100)))
-//                .block(new BlockBuilder()
-//                        .declareVariable('x', Constant.of(10))
-//                        .invoke("out", List.of(Constant.of(100)))
-//                        .build()
-//                )
-//                .buildProgram();
+        /*var program_v2 = new ProgramBuilder()
+                .declareVariable('x', Constant.of(101))
+                .declareVariable('y', Constant.of(1))
+                .declareProcedure("out", List.of('a'), new BlockBuilder()
+                        .print(Addition.of(Variable.named('a'), Variable.named('x')))
+                        .build()
+                )
+                .assign('x', Subtraction.of(Variable.named('x'), Variable.named('y')))
+                .invoke("out", List.of(Variable.named('x')))
+                .invoke("out", List.of(Constant.of(100)))
+                .block(new BlockBuilder()
+                        .declareVariable('x', Constant.of(10))
+                        .invoke("out", List.of(Constant.of(100)))
+                        .build()
+                )
+                .buildProgram();*/
     }
 }

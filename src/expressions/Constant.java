@@ -14,6 +14,8 @@ public class Constant extends Expression {
         this.value = value;
     }
 
+    public static Constant of(int value) { return new Constant(value); }
+
     @Override
     public int evaluate(Variables variables) {
         return value;
