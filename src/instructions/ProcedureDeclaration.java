@@ -47,10 +47,17 @@ public class ProcedureDeclaration extends Declaration {
         environment.getVariables().createProcedure(name, this);
     }
 
-    @Override
-    public String toString() {
+    /**
+     * Funkcja pomocnicza, służąca do wyświetlania listy parametrów procedury.
+     * @return lista parametrów w formie (a, b, c)
+     */
+    public String getParametersString() {
         String params = parameters.toString(); // konwertujemy do postaci [a, b, c]
         params = params.substring(1, params.length() - 2); // obcinamy nawiasy
-        return "fun " + name + "(" + params + ")" + body;
+        return "(" + params + ")";
+    }
+    @Override
+    public String toString() {
+        return "fun " + name + getParametersString() + body;
     }
 }

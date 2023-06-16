@@ -60,7 +60,7 @@ public class Program {
             System.out.print("[Debugger]: "); // oczekujemy na wpisanie polecenia
             char c = scanner.next().charAt(0);
             switch (c) {
-                case 'c', 's', 'd' -> {
+                case 'c', 's', 'd', 'm' -> {
                     System.out.println("Program już się zakończył. ");
                     scanner.nextLine();
                 }
@@ -69,7 +69,8 @@ public class Program {
                     return;
                 }
                 default -> {
-                    System.out.println("Podano niewłaściwe polecenie. Możliwe opcje to 'c', 's <num>', 'd <num>', 'e')");
+                    System.out.println("Podano niewłaściwe polecenie. " +
+                                       "Możliwe opcje to 'c', 's <num>', 'd <num>', 'm <text>', 'e')");
                     scanner.nextLine();
                 }
             }

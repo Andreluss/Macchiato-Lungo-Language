@@ -102,13 +102,23 @@ public class MacchiatoEnvironment {
                             System.out.println("Za duża wartość zagłębienia (aktualnie powinna być < " + stack.size() + ").");
                         }
                     }
+                    case 'm' -> {
+                        String path = scanner.next(); // ścieżka do pliku
+                        if(stack.isEmpty()) {
+                            System.out.println("Stos wykonania programu jest pusty - zrzut pamięci nie został wykonany. ");
+                        }
+                        else {
+                            Variables variables = stack.peek();
+                            variables.dumpToFile(path);
+                        }
+                    }
                     case 'e' -> {
                         return false; // przerwij wykonanie programu
                     }
                     default -> throw new InputMismatchException();
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Podano niewłaściwe polecenie. Możliwe opcje to 'c', 's <num>', 'd <num>', 'e')");
+                System.out.println("Podano niewłaściwe polecenie. Możliwe opcje to 'c', 's <num>', 'd <num>', 'm <text>', 'e')");
                 scanner.nextLine();
             }
         }
