@@ -1,7 +1,6 @@
 package runtime;
 
 import exceptions.MacchiatoDebugStopException;
-import expressions.Variables;
 import instructions.InstructionBase;
 
 import java.util.InputMismatchException;

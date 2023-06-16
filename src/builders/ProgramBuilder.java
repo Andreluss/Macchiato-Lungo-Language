@@ -1,4 +1,6 @@
-package runtime;
+package builders;
+
+import builders.BlockBuilder;
 
 /**
  * Klasa budująca program.
@@ -8,7 +10,4 @@ package runtime;
  * Aby zbudować program, należy na końcu użyć funkcji buildProgram() zamiast build().
  */
 public class ProgramBuilder extends BlockBuilder {
-    public Program buildProgram() {
-        return new Program(build());
-    }
 }

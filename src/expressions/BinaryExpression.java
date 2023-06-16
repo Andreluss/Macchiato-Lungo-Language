@@ -1,6 +1,7 @@
 package expressions;
 
 import exceptions.MacchiatoRuntimeException;
+import runtime.Variables;
 
 /**
  * Abstrakcyjna klasa reprezentująca wyrażenie-operację dwuargumentową w programie. <br>

@@ -29,6 +29,13 @@ public class For extends Instruction {
         this.instructions = instructions;
     }
 
+    /**
+     * Pomocniczy konstruktor: tworzy pętlę z podanym blokiem instrukcji.
+     */
+    public For(char variable, Expression expression, Block block) {
+        this(variable, expression, new Instruction[]{ block });
+    }
+
     @Override
     public void run(MacchiatoEnvironment environment) throws MacchiatoException {
         environment.pauseExecutionIfNeeded(this);

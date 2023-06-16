@@ -1,6 +1,7 @@
 package expressions;
 
 import exceptions.MacchiatoRuntimeException;
+import runtime.Variables;
 
 /**
  * Klasa reprezentująca wyrażenie w programie

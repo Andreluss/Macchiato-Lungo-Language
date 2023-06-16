@@ -1,4 +1,4 @@
-package expressions;
+package runtime;
 
 import exceptions.MacchiatoRuntimeException;
 import instructions.ProcedureDeclaration;
@@ -130,7 +130,7 @@ public class Variables {
      * Wyświetla wartości wszystkich istniejących zmiennych.
      */
     public void print() {
-        System.out.println(variablesInfo());
+        System.out.print(variablesInfo());
     }
 
     /**

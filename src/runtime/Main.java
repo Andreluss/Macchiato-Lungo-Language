@@ -1,5 +1,8 @@
 package runtime;
 
+import builders.BlockBuilder;
+import builders.IfBuilder;
+import builders.ProgramBuilder;
 import expressions.*;
 import instructions.*;
 
@@ -61,7 +64,7 @@ public class Main {
         // uruchamiamy z debugowaniem
          program.debug();
 
-        /*var program_v2 = new ProgramBuilder()
+        var program_v2 = new ProgramBuilder()
                 .declareVariable('x', Constant.of(101))
                 .declareVariable('y', Constant.of(1))
                 .declareProcedure("out", List.of('a'), new BlockBuilder()
@@ -76,6 +79,19 @@ public class Main {
                         .invoke("out", List.of(Constant.of(100)))
                         .build()
                 )
-                .buildProgram();*/
+                .buildProgram();
+        program_v2.debug();
+
+        var program_v3 = new ProgramBuilder()
+                .declareVariable('c', Constant.of(42))
+                .checkCondition(new IfBuilder()
+                                .ifHolds(Variable.named('c'), If.ComparisonType.Greater, Constant.of(68))
+                                .then(new BlockBuilder().build())
+                                .elseThen(new BlockBuilder()
+                                        .print(new Constant(-1)).build())
+                                .build()
+                        )
+                .buildProgram();
+        program_v3.debug();
     }
 }

@@ -1,5 +1,7 @@
 package expressions;
 
+import runtime.Variables;
+
 /**
  * Wyrażenie: literał całkowity, np. 100 lub -42
  */

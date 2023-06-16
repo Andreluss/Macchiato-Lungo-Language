@@ -1,8 +1,7 @@
-package runtime;
+package expressions;
 
 import exceptions.MacchiatoRuntimeException;
-import expressions.Expression;
-import expressions.Variables;
+import runtime.Variables;
 
 /**
  * Wyrażenie: zmienna
