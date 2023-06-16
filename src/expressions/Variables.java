@@ -13,7 +13,6 @@ import java.util.Map;
  */
 public class Variables {
     private static class Var {
-
         private int value;
 
         public Var(int value) {
@@ -112,6 +111,10 @@ public class Variables {
         return get(name).value;
     }
 
+    /**
+     * Zwraca informacje o bieżącym wartościowaniu zmiennych.
+     * @return wartości zmiennych (String)
+     */
     private String variablesInfo() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 26; i++) {
@@ -127,12 +130,6 @@ public class Variables {
      * Wyświetla wartości wszystkich istniejących zmiennych.
      */
     public void print() {
-        /*for (int i = 0; i < 26; i++) {
-            if (vars[i] != null) {
-                char name = (char) (i + 'a');
-                System.out.println("-> " + name + " = " + vars[i].value);
-            }
-        }*/
         System.out.println(variablesInfo());
     }
 
@@ -144,13 +141,12 @@ public class Variables {
     public void dumpToFile(String path) {
         try {
             FileWriter writer = new FileWriter(path);
-            StringBuilder sb = new StringBuilder();
-            sb.append("=== Macchiato Memory Dump ===\n");
-            sb.append("Zmienne:\n");
-            sb.append(variablesInfo());
-            sb.append("Procedury:\n");
-            sb.append(proceduresInfo());
-            writer.write(sb.toString());
+            String sb = "=== Macchiato Memory Dump ===\n" +
+                    "Zmienne:\n" +
+                    variablesInfo() +
+                    "Procedury:\n" +
+                    proceduresInfo();
+            writer.write(sb);
             writer.close();
         } catch (IOException e) {
             System.out.println("Wystąpił błąd podczas próby zapisu do pliku '" + path + "'." +
@@ -160,6 +156,10 @@ public class Variables {
         System.out.println("Zrzut pamięci pomyślnie zapisany w pliku '" + path + "'.");
     }
 
+    /**
+     * Zwraca informacje o wszystkich zadeklarowanych procedurach.
+     * @return lista zadeklarowanych procedur (String)
+     */
     private String proceduresInfo() {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, ProcedureDeclaration> entry : procs.entrySet()) {
