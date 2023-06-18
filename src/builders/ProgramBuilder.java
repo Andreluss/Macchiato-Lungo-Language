@@ -1,7 +1,5 @@
 package builders;
 
-import builders.BlockBuilder;
-
 /**
  * Klasa budująca program.
  * Uwaga: ponieważ program to praktycznie to samo, co blok kodu,
