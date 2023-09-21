@@ -77,7 +77,7 @@ public class MacchiatoEnvironment {
      * lub false, jeśli wywołano exit, czyli program ma się skończyć natychmiast
      */
     public boolean pauseExecution(InstructionBase nextInstruction) {
-        System.out.println("Program zapauzowany. Następny krok to " + nextInstruction);
+        System.out.println("Program paused. Next step is " + nextInstruction);
         Scanner scanner = new Scanner(System.in);
         while(true) {
             try {
@@ -98,13 +98,13 @@ public class MacchiatoEnvironment {
                             stack.get(stack.size() - levels - 1).print(); // który od góry element stosu
                         }
                         else {
-                            System.out.println("Za duża wartość zagłębienia (aktualnie powinna być < " + stack.size() + ").");
+                            System.out.println("Scope level too high (currently it should be < " + stack.size() + ").");
                         }
                     }
                     case 'm' -> {
                         String path = scanner.next(); // ścieżka do pliku
                         if(stack.isEmpty()) {
-                            System.out.println("Stos wykonania programu jest pusty - zrzut pamięci nie został wykonany. ");
+                            System.out.println("Program execution stack is empty - memory dump failed.");
                         }
                         else {
                             Variables variables = stack.peek();
@@ -117,7 +117,7 @@ public class MacchiatoEnvironment {
                     default -> throw new InputMismatchException();
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Podano niewłaściwe polecenie. Możliwe opcje to 'c', 's <num>', 'd <num>', 'm <text>', 'e')");
+                System.out.println("An incorrect command was given. The possible options are 'c', 's <num>', 'd <num>', 'm <text>', 'e')");
                 scanner.nextLine();
             }
         }

@@ -142,18 +142,18 @@ public class Variables {
         try {
             FileWriter writer = new FileWriter(path);
             String sb = "=== Macchiato Memory Dump ===\n" +
-                    "Zmienne:\n" +
+                    "Variables:\n" +
                     variablesInfo() +
-                    "Procedury:\n" +
+                    "Procedures:\n" +
                     proceduresInfo();
             writer.write(sb);
             writer.close();
         } catch (IOException e) {
-            System.out.println("Wystąpił błąd podczas próby zapisu do pliku '" + path + "'." +
+            System.out.println("Error when trying to write to file '" + path + "'." +
                     " Error message: \"" + e.getMessage() + "\".");
             return;
         }
-        System.out.println("Zrzut pamięci pomyślnie zapisany w pliku '" + path + "'.");
+        System.out.println("Memory dump correctly save in the file '" + path + "'.");
     }
 
     /**
